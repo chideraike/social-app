@@ -28,7 +28,7 @@ const PostDetail = () => {
                     <NewText content="Shane Robertson" dark h3 />
                     <NewText content="32m ago" light h5 />
                 </View>
-                <TouchableOpacity style={styles.moreIcon}>
+                <TouchableOpacity>
                     <Icon
                         name='more-vertical-outline'
                         fill='#303035'
@@ -79,5 +79,4 @@ const styles = StyleSheet.create({
         width: '68%'
     },
     postInfoContainer: {},
-    moreIcon: {},
 })

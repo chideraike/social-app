@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, StyleSheet, TouchableWithoutFeedback, Keyboard } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 
 import NewText from '../components/NewText';
 import SearchBar from '../components/SearchBar';
@@ -9,22 +9,16 @@ import Posts from '../components/Posts';
 
 function Home({ navigation }) {
     return (
-        <DismissKeyboard>
-            <View>
-                <UserInfo />
-                <SearchBar />
-                <Stories navigation={navigation} />
-                <Posts />
-            </View>
-        </DismissKeyboard>
+        <View>
+            <UserInfo />
+            <SearchBar />
+            <Stories navigation={navigation} />
+            <Posts />
+        </View>
     )
 }
 
-const DismissKeyboard = ({ children }) => (
-    <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
-        {children}
-    </TouchableWithoutFeedback>
-);
+
 
 const UserInfo = () => (
     <View style={styles.userInfoContainer}>

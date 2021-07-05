@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, SafeAreaView } from 'react-native';
+import { StyleSheet, SafeAreaView, TouchableOpacity, TouchableWithoutFeedback, Keyboard } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import AppLoading from 'expo-app-loading';
@@ -10,6 +10,7 @@ import {
   Poppins_500Medium,
   Poppins_700Bold,
 } from '@expo-google-fonts/poppins';
+import { Icon } from 'react-native-eva-icons';
 
 import Home from './screens/Home';
 import Conversation from './screens/Conversation';
@@ -31,7 +32,46 @@ const ConversationScreen = () => (
 export default function App() {
   return (
     <NavigationContainer>
-      <AppStack.Navigator initialRouteName="Home">
+      <AppStack.Navigator
+        initialRouteName="Home"
+        screenOptions={{
+          headerStyle: {
+            backgroundColor: '#ecf2fb',
+          },
+          headerTintColor: '#303035',
+          headerBackTitleVisible: false,
+          // headerTitleStyle: {
+          //   fontFamily: 'Poppins_700Bold',
+          //   fontSize: 32
+          // },
+          headerRight: () => (
+            <TouchableOpacity>
+              <Icon
+                name='more-vertical-outline'
+                fill='#303035'
+                height={30}
+                width={30}
+              />
+            </TouchableOpacity>
+          ),
+          headerRightContainerStyle: {
+            marginRight: 20
+          },
+          headerLeft: (props) => (
+            <TouchableOpacity {...props}>
+              <Icon
+                name='arrow-back-outline'
+                fill='#303035'
+                height={30}
+                width={30}
+              />
+            </TouchableOpacity>
+          ),
+          headerLeftContainerStyle: {
+            marginLeft: 20
+          },
+        }}
+      >
         <AppStack.Screen
           name="Home"
           component={HomeScreen}
@@ -40,12 +80,17 @@ export default function App() {
         <AppStack.Screen
           name="Conversation"
           component={ConversationScreen}
-        // options={{ headerShown: false }}
         />
       </AppStack.Navigator>
     </NavigationContainer>
   );
 }
+
+const DismissKeyboard = ({ children }) => (
+  <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+    {children}
+  </TouchableWithoutFeedback>
+);
 
 function Screen({ children }) {
   let [fontsLoaded] = useFonts({
@@ -58,10 +103,12 @@ function Screen({ children }) {
     return <AppLoading />;
   } else {
     return (
-      <SafeAreaView style={styles.container}>
-        <StatusBar style="auto" />
-        {children}
-      </SafeAreaView>
+      <DismissKeyboard>
+        <SafeAreaView style={styles.container}>
+          <StatusBar style="auto" />
+          {children}
+        </SafeAreaView>
+      </DismissKeyboard>
     )
   }
 }
