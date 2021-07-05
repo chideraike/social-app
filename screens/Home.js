@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { View, StyleSheet, TouchableWithoutFeedback, Keyboard } from 'react-native';
 
 import NewText from '../components/NewText';
@@ -7,13 +7,13 @@ import Stories from '../components/Stories';
 import UserImage from '../components/UserImage';
 import Posts from '../components/Posts';
 
-function Home() {
+function Home({ navigation }) {
     return (
         <DismissKeyboard>
             <View>
                 <UserInfo />
                 <SearchBar />
-                <Stories />
+                <Stories navigation={navigation} />
                 <Posts />
             </View>
         </DismissKeyboard>

@@ -1,12 +1,13 @@
 import React from 'react'
 import { StyleSheet, View, TouchableOpacity, ScrollView } from 'react-native'
 import { Icon } from 'react-native-eva-icons';
+import * as Haptics from 'expo-haptics';
 
-export default function Stories() {
+export default function Stories({ navigation }) {
     return (
         <ScrollView horizontal style={styles.storiesContainer} showsHorizontalScrollIndicator={false}>
             <View style={styles.addStoryContainer}>
-                <AddStory />
+                <AddStory navigation={navigation} />
             </View>
             <View style={styles.storiesContainer}>
                 <Story />
@@ -19,16 +20,26 @@ export default function Stories() {
     )
 }
 
-const AddStory = () => (
-    <TouchableOpacity style={styles.addStory}>
-        <Icon
-            name='plus-outline'
-            fill='#b0c6e1'
-            height={30}
-            width={30}
-        />
-    </TouchableOpacity>
-);
+const AddStory = ({ navigation }) => {
+    const add = () => {
+        Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
+        navigation.navigate('Conversation');
+    }
+
+    return (
+        <TouchableOpacity
+            style={styles.addStory}
+            onPress={add}
+        >
+            <Icon
+                name='plus-outline'
+                fill='#b0c6e1'
+                height={30}
+                width={30}
+            />
+        </TouchableOpacity>
+    )
+}
 
 const Story = () => {
     return (

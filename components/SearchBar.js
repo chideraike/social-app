@@ -1,16 +1,8 @@
 import React from 'react'
 import { StyleSheet, TextInput, View, TouchableWithoutFeedback } from 'react-native'
 import { Icon } from 'react-native-eva-icons';
-import {
-    useFonts,
-    Poppins_500Medium,
-} from '@expo-google-fonts/poppins';
 
 export default function SearchBar() {
-    let [fontsLoaded] = useFonts({
-        Poppins_500Medium,
-    });
-
     const iconRef = React.useRef();
     const onIconPress = () => {
         iconRef.current?.startAnimation();
