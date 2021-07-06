@@ -80,6 +80,7 @@ export default function App() {
         <AppStack.Screen
           name="Conversation"
           component={ConversationScreen}
+          // options={{ headerShown: false }}
         />
       </AppStack.Navigator>
     </NavigationContainer>
