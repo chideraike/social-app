@@ -5,7 +5,7 @@ export default NewText = ({ h1, h2, h3, h4, h5, p, bold, light, dark, content })
     return (
         <Text
             style={[
-                { fontFamily: 'Poppins_500Medium,' },
+                { fontFamily: 'Poppins_500Medium' },
                 h1 && { fontSize: 48 },
                 h2 && { fontSize: 32 },
                 h3 && { fontSize: 20 },

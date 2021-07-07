@@ -6,7 +6,6 @@ import { createStackNavigator } from '@react-navigation/stack';
 import AppLoading from 'expo-app-loading';
 import {
   useFonts,
-  // Poppins_400Regular,
   Poppins_500Medium,
   Poppins_700Bold,
 } from '@expo-google-fonts/poppins';
@@ -31,7 +30,6 @@ const ConversationScreen = () => (
 
 export default function App() {
   let [fontsLoaded] = useFonts({
-    // Poppins_400Regular,
     Poppins_500Medium,
     Poppins_700Bold,
   });

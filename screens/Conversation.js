@@ -1,13 +1,14 @@
-import React from 'react'
-import { StyleSheet, View, Animated } from 'react-native'
-import { Icon } from 'react-native-eva-icons';
+import React from 'react';
+import { StyleSheet, View } from 'react-native';
 
 import SearchBar from '../components/SearchBar';
+import Chats from '../components/Chats';
 
 export default function Conversation({ navigation }) {
     return (
         <View>
             <SearchBar />
+            <Chats />
         </View>
     )
 }
