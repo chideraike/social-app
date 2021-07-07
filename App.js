@@ -30,70 +30,6 @@ const ConversationScreen = () => (
 )
 
 export default function App() {
-  return (
-    <NavigationContainer>
-      <AppStack.Navigator
-        initialRouteName="Home"
-        screenOptions={{
-          headerStyle: {
-            backgroundColor: '#ecf2fb',
-          },
-          headerTintColor: '#303035',
-          headerBackTitleVisible: false,
-          // headerTitleStyle: {
-          //   fontFamily: 'Poppins_700Bold',
-          //   fontSize: 32
-          // },
-          headerRight: () => (
-            <TouchableOpacity>
-              <Icon
-                name='more-vertical-outline'
-                fill='#303035'
-                height={30}
-                width={30}
-              />
-            </TouchableOpacity>
-          ),
-          headerRightContainerStyle: {
-            marginRight: 20
-          },
-          headerLeft: (props) => (
-            <TouchableOpacity {...props}>
-              <Icon
-                name='arrow-back-outline'
-                fill='#303035'
-                height={30}
-                width={30}
-              />
-            </TouchableOpacity>
-          ),
-          headerLeftContainerStyle: {
-            marginLeft: 20
-          },
-        }}
-      >
-        <AppStack.Screen
-          name="Home"
-          component={HomeScreen}
-          options={{ headerShown: false }}
-        />
-        <AppStack.Screen
-          name="Conversation"
-          component={ConversationScreen}
-          // options={{ headerShown: false }}
-        />
-      </AppStack.Navigator>
-    </NavigationContainer>
-  );
-}
-
-const DismissKeyboard = ({ children }) => (
-  <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
-    {children}
-  </TouchableWithoutFeedback>
-);
-
-function Screen({ children }) {
   let [fontsLoaded] = useFonts({
     // Poppins_400Regular,
     Poppins_500Medium,
@@ -104,14 +40,78 @@ function Screen({ children }) {
     return <AppLoading />;
   } else {
     return (
-      <DismissKeyboard>
-        <SafeAreaView style={styles.container}>
-          <StatusBar style="auto" />
-          {children}
-        </SafeAreaView>
-      </DismissKeyboard>
-    )
+      <NavigationContainer>
+        <AppStack.Navigator
+          initialRouteName="Home"
+          screenOptions={{
+            headerStyle: {
+              backgroundColor: '#ecf2fb',
+            },
+            headerTintColor: '#303035',
+            headerBackTitleVisible: false,
+            // headerTitleStyle: {
+            //   fontFamily: 'Poppins_700Bold',
+            //   fontSize: 32
+            // },
+            headerRight: () => (
+              <TouchableOpacity>
+                <Icon
+                  name='more-vertical-outline'
+                  fill='#303035'
+                  height={30}
+                  width={30}
+                />
+              </TouchableOpacity>
+            ),
+            headerRightContainerStyle: {
+              marginRight: 20
+            },
+            headerLeft: (props) => (
+              <TouchableOpacity {...props}>
+                <Icon
+                  name='arrow-back-outline'
+                  fill='#303035'
+                  height={30}
+                  width={30}
+                />
+              </TouchableOpacity>
+            ),
+            headerLeftContainerStyle: {
+              marginLeft: 20
+            },
+          }}
+        >
+          <AppStack.Screen
+            name="Home"
+            component={HomeScreen}
+            options={{ headerShown: false }}
+          />
+          <AppStack.Screen
+            name="Conversation"
+            component={ConversationScreen}
+          // options={{ headerShown: false }}
+          />
+        </AppStack.Navigator>
+      </NavigationContainer>
+    );
   }
+}
+
+const DismissKeyboard = ({ children }) => (
+  <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+    {children}
+  </TouchableWithoutFeedback>
+);
+
+function Screen({ children }) {
+  return (
+    <DismissKeyboard>
+      <SafeAreaView style={styles.container}>
+        <StatusBar style="auto" />
+        {children}
+      </SafeAreaView>
+    </DismissKeyboard>
+  )
 }
 
 const styles = StyleSheet.create({
