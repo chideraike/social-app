@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, View } from 'react-native'
+import { StyleSheet, View, TouchableOpacity } from 'react-native'
 
 import NewText from '../components/NewText'
 import UserImage from '../components/UserImage'
@@ -49,11 +49,11 @@ const ProfilePosts = () => {
     return (
         <View style={styles.profilePosts}>
             <View style={styles.profilePostSection1}>
-                <View style={styles.profilePost1}></View>
+                <TouchableOpacity style={styles.profilePost1}></TouchableOpacity>
             </View>
             <View style={styles.profilePostSection2}>
-                <View style={styles.profilePost2}></View>
-                <View style={styles.profilePost3}></View>
+                <TouchableOpacity style={styles.profilePost2}></TouchableOpacity>
+                <TouchableOpacity style={styles.profilePost3}></TouchableOpacity>
             </View>
         </View>
     )
