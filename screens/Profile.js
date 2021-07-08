@@ -16,6 +16,44 @@ export default function Profile() {
                     <NewText content={`Guildhall School of Music & Drama`} light h4 />
                 </View>
                 <NewText content="London, UK" light h4 />
+                <View style={styles.profileStats}>
+                    <Stat
+                        name="Photos"
+                        number={456}
+                    />
+                    <Stat
+                        name="Followers"
+                        number={602}
+                    />
+                    <Stat
+                        name="Follows"
+                        number={290}
+                    />
+                </View>
+            </View>
+            <ProfilePosts />
+        </View>
+    )
+}
+
+const Stat = ({ name, number }) => {
+    return (
+        <View style={styles.stat}>
+            <NewText content={name} light h4 />
+            <NewText content={number} dark bold h3 />
+        </View>
+    )
+}
+
+const ProfilePosts = () => {
+    return (
+        <View style={styles.profilePosts}>
+            <View style={styles.profilePostSection1}>
+                <View style={styles.profilePost1}></View>
+            </View>
+            <View style={styles.profilePostSection2}>
+                <View style={styles.profilePost2}></View>
+                <View style={styles.profilePost3}></View>
             </View>
         </View>
     )
@@ -44,5 +82,46 @@ const styles = StyleSheet.create({
     profileBio: {
         marginTop: 5,
         marginBottom: 5,
+    },
+    profileStats: {
+        flexDirection: 'row',
+        marginTop: 10,
+    },
+    stat: {
+        alignItems: 'center',
+        margin: 20,
+    },
+    profilePosts: {
+        margin: 15,
+        marginTop: 50,
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+    },
+    profilePostSection1: {
+        flex: 1,
+        margin: 5,
+    },
+    profilePostSection2: {
+        flex: 1,
+        margin: 5,
+        justifyContent: 'space-between',
+    },
+    profilePost1: {
+        backgroundColor: '#c64b50',
+        height: 310,
+        borderRadius: 20,
+    },
+    profilePost2: {
+        backgroundColor: '#c64b50',
+        height: 150,
+        borderRadius: 20,
+        marginBottom: 5,
+    },
+    profilePost3: {
+        backgroundColor: '#c64b50',
+        height: 150,
+        borderRadius: 20,
+        marginTop: 5,
     },
 })
