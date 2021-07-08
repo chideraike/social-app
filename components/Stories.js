@@ -22,7 +22,7 @@ export default function Stories({ navigation }) {
 
 const AddStory = ({ navigation }) => {
     const add = () => {
-        Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
+        Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
         navigation.navigate('Conversation');
     }
 
