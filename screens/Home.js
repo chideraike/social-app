@@ -10,7 +10,7 @@ import Posts from '../components/Posts';
 function Home({ navigation }) {
     return (
         <View>
-            <UserInfo />
+            <UserInfo navigation={navigation} />
             <SearchBar />
             <Stories navigation={navigation} />
             <Posts />
@@ -20,13 +20,13 @@ function Home({ navigation }) {
 
 
 
-const UserInfo = () => (
+const UserInfo = ({ navigation}) => (
     <View style={styles.userInfoContainer}>
         <View>
             <NewText content="Hello," h3 light />
             <NewText content="Alvarado!" bold h2 dark />
         </View>
-        <UserImage />
+        <UserImage navigation={navigation} />
     </View>
 );
 

@@ -1,9 +1,17 @@
 import React from 'react'
 import { StyleSheet, TouchableOpacity } from 'react-native'
 
-export default function UserImage() {
+export default function UserImage({ navigation, disabled }) {
+    const openProfile = () => {
+        navigation.navigate('Profile');
+    }
+
     return (
-        <TouchableOpacity style={styles.userImage}>
+        <TouchableOpacity
+            style={styles.userImage}
+            onPress={openProfile}
+            disabled={disabled}
+        >
 
         </TouchableOpacity>
     )

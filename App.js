@@ -13,6 +13,7 @@ import { Icon } from 'react-native-eva-icons';
 
 import Home from './screens/Home';
 import Conversation from './screens/Conversation';
+import Profile from './screens/Profile';
 
 const AppStack = createStackNavigator();
 
@@ -25,6 +26,12 @@ const HomeScreen = ({ navigation }) => (
 const ConversationScreen = () => (
   <Screen>
     <Conversation />
+  </Screen>
+)
+
+const ProfileScreen = () => (
+  <Screen>
+    <Profile />
   </Screen>
 )
 
@@ -87,6 +94,11 @@ export default function App() {
           <AppStack.Screen
             name="Conversation"
             component={ConversationScreen}
+          // options={{ headerShown: false }}
+          />
+          <AppStack.Screen
+            name="Profile"
+            component={ProfileScreen}
           // options={{ headerShown: false }}
           />
         </AppStack.Navigator>
