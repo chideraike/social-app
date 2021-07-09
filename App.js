@@ -14,6 +14,7 @@ import { Icon } from 'react-native-eva-icons';
 import Home from './screens/Home';
 import Conversation from './screens/Conversation';
 import Profile from './screens/Profile';
+import UserModal from './components/UserModal';
 
 const AppStack = createStackNavigator();
 
@@ -114,10 +115,20 @@ const DismissKeyboard = ({ children }) => (
 );
 
 function Screen({ children }) {
+  const [userModalVisible, setUserModalVisible] = React.useState(true);
+
+  const toggleUserModal = () => {
+    setUserModalVisible(!userModalVisible)
+  }
+
   return (
     <DismissKeyboard>
       <SafeAreaView style={styles.container}>
         <StatusBar style="auto" />
+        <UserModal
+         visible={userModalVisible}
+         toggleModal={toggleUserModal}
+         />
         {children}
       </SafeAreaView>
     </DismissKeyboard>
