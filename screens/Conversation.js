@@ -4,11 +4,11 @@ import { StyleSheet, View } from 'react-native';
 import SearchBar from '../components/SearchBar';
 import Chats from '../components/Chats';
 
-export default function Conversation({ navigation }) {
+export default function Conversation({ navigation, toggle }) {
     return (
         <View>
             <SearchBar />
-            <Chats />
+            <Chats toggle={toggle} />
         </View>
     )
 }

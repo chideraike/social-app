@@ -4,40 +4,46 @@ import * as Haptics from 'expo-haptics';
 
 import NewText from '../components/NewText';
 
-export default function Chats() {
+export default function Chats({ toggle }) {
     return (
         <View>
             <Chat
                 title="Beverly Jones"
                 message="You know you're in love when"
-            />
+                toggle={toggle}
+                />
             <Chat
                 title="Crystal Flores"
                 message="Hey you! What's up!"
-            />
+                toggle={toggle}
+                />
             <Chat
                 title="Brittany Hart"
                 message="When i'm good, I'm very good"
-            />
+                toggle={toggle}
+                />
             <Chat
                 title="Deborah Flores"
                 message="Hey you! What's up!"
-            />
+                toggle={toggle}
+                />
             <Chat
                 title="Harley Quinn"
                 message="I am a dancer. I know you're"
+                toggle={toggle}
             />
         </View>
     )
 }
 
-const Chat = ({ title, message }) => {
+const Chat = ({ title, message, toggle }) => {
     const onPressChat = () => {
         console.log('Pressed chat')
     }
 
     const onLongPressChat = () => {
         Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
+        toggle()
         console.log('Long pressed chat')
     }
 

@@ -1,70 +1,63 @@
 import React from 'react'
 import { StyleSheet, View, TouchableOpacity } from 'react-native'
-import Modal from 'react-native-modal'
 import { Icon } from 'react-native-eva-icons';
 
 import NewText from '../components/NewText'
 import UserImage from '../components/UserImage'
+import NewModal from './NewModal'
 
-export default function UserModal({ visible, toggleModal }) {
+export default function UserModal({ visible, toggle }) {
     return (
-        <Modal
-            isVisible={visible}
-            swipeDirection="down"
-            hideModalContentWhileAnimating={true}
-            onSwipeComplete={() => toggleModal()}
-            onBackdropPress={() => toggleModal()}
-            style={{ margin: 0, justifyContent: 'flex-end' }}
+        <NewModal
+            visible={visible}
+            toggleModal={toggle}
         >
-            <View style={styles.modalContainer}>
-                <View style={styles.modalBar} />
-                <View style={styles.modalHeader}>
-                    <UserImage disabled />
-                    <View style={styles.actionContainer}>
-                        <ActionButton secondary style={{ marginRight: 10 }}>
-                            <Icon
-                                name='message-square-outline'
-                                fill='#c64b50'
-                                height={30}
-                                width={30}
-                            />
-                        </ActionButton>
-                        <ActionButton primary style={{ marginLeft: 10 }}>
-                            <Icon
-                                name='person-add-outline'
-                                fill='#fff'
-                                height={30}
-                                width={30}
-                            />
-                        </ActionButton>
-                    </View>
+            <View style={styles.modalHeader}>
+                <UserImage disabled />
+                <View style={styles.actionContainer}>
+                    <ActionButton secondary style={{ marginRight: 10 }}>
+                        <Icon
+                            name='message-square-outline'
+                            fill='#c64b50'
+                            height={30}
+                            width={30}
+                        />
+                    </ActionButton>
+                    <ActionButton primary style={{ marginLeft: 10 }}>
+                        <Icon
+                            name='person-add-outline'
+                            fill='#fff'
+                            height={30}
+                            width={30}
+                        />
+                    </ActionButton>
                 </View>
-                <View style={styles.modalBody}>
-                    <View style={styles.profileName}>
-                        <NewText content="Anna Alvarado" dark bold h3 />
-                    </View>
-                    <View style={styles.profileBio}>
-                        <NewText content={`Guildhall School of Music & Drama`} light h4 />
-                    </View>
-                    <NewText content="London, UK" light h4 />
-                    <View style={styles.profileStats}>
-                        <Stat
-                            name="Photos"
-                            number={456}
-                        />
-                        <Stat
-                            name="Followers"
-                            number={602}
-                        />
-                        <Stat
-                            name="Follows"
-                            number={290}
-                        />
-                    </View>
-                </View>
-                <View style={styles.modalFooter}></View>
             </View>
-        </Modal>
+            <View style={styles.modalBody}>
+                <View style={styles.profileName}>
+                    <NewText content="Anna Alvarado" dark bold h3 />
+                </View>
+                <View style={styles.profileBio}>
+                    <NewText content={`Guildhall School of Music & Drama`} light h4 />
+                </View>
+                <NewText content="London, UK" light h4 />
+                <View style={styles.profileStats}>
+                    <Stat
+                        name="Photos"
+                        number={456}
+                    />
+                    <Stat
+                        name="Followers"
+                        number={602}
+                    />
+                    <Stat
+                        name="Follows"
+                        number={290}
+                    />
+                </View>
+            </View>
+            <View style={styles.modalFooter}></View>
+        </NewModal>
     )
 }
 
@@ -95,19 +88,6 @@ const Stat = ({ name, number }) => {
 }
 
 const styles = StyleSheet.create({
-    modalContainer: {
-        backgroundColor: '#ecf2fb',
-        borderTopLeftRadius: 20,
-        borderTopRightRadius: 20,
-        padding: 20,
-    },
-    modalBar: {
-        height: 5,
-        width: 60,
-        borderRadius: 5,
-        backgroundColor: '#303035',
-        alignSelf: 'center',
-    },
     modalHeader: {
         flexDirection: 'row',
         alignItems: 'center',

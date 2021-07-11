@@ -24,15 +24,24 @@ const HomeScreen = ({ navigation }) => (
   </Screen>
 )
 
-const ConversationScreen = () => (
-  <Screen>
-    <Conversation />
-  </Screen>
-)
+const ConversationScreen = ({ navigation }) => {
+  const [modalVisible, setModalVisible] = React.useState(false);
 
-const ProfileScreen = () => (
+  const toggleModal = () => {
+    setModalVisible(!modalVisible);
+  };
+
+  return (
+    <Screen>
+      <UserModal visible={modalVisible} toggle={toggleModal} />
+      <Conversation navigation={navigation} toggle={toggleModal} />
+    </Screen>
+  )
+}
+
+const ProfileScreen = ({ navigation }) => (
   <Screen>
-    <Profile />
+    <Profile navigation={navigation} />
   </Screen>
 )
 
@@ -115,20 +124,10 @@ const DismissKeyboard = ({ children }) => (
 );
 
 function Screen({ children }) {
-  const [userModalVisible, setUserModalVisible] = React.useState(true);
-
-  const toggleUserModal = () => {
-    setUserModalVisible(!userModalVisible)
-  }
-
   return (
     <DismissKeyboard>
       <SafeAreaView style={styles.container}>
         <StatusBar style="auto" />
-        <UserModal
-         visible={userModalVisible}
-         toggleModal={toggleUserModal}
-         />
         {children}
       </SafeAreaView>
     </DismissKeyboard>
