@@ -10,6 +10,7 @@ export default function NewModal({ visible, toggleModal, children }) {
             hideModalContentWhileAnimating={true}
             onSwipeComplete={() => toggleModal()}
             onBackdropPress={() => toggleModal()}
+            onBackButtonPress={() => toggleModal()}
             style={{ margin: 0, justifyContent: 'flex-end' }}
         >
             <View style={styles.modalContainer}>
