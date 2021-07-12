@@ -2,6 +2,10 @@
 
 Design inspiration gotten from [here](https://dribbble.com/shots/9579493-Social-app-screen) and also [here](https://dribbble.com/shots/10160402-Lovely)
 
+
+https://user-images.githubusercontent.com/42821245/125358463-72f1ab80-e358-11eb-8484-8d0bdff30361.mp4
+
+
 ## Installation
 This app was built using [React Native](https://reactnative.dev/) with [Expo](https://expo.io). In other to run it install **Expo Go** from either the App Store or Play Store.  
 
