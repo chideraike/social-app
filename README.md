@@ -5,7 +5,7 @@ Design inspiration gotten from [here](https://dribbble.com/shots/9579493-Social-
 ## Installation
 This app was built using [React Native](https://reactnative.dev/) with [Expo](https://expo.io). In other to run it install **Expo Go** from either the App Store or Play Store.  
 
- -  Run the app [here](exp://exp.host/@chideraike/social-app) directly from the Expo app
+ -  Run the app [here](https://expo.io/@chideraike/social-app) directly from the Expo app
 
 Then follow these steps to run the app locally;
 
