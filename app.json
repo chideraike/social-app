@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "social-app",
+    "name": "Social App",
     "slug": "social-app",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -27,6 +27,8 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "description": "Social App design built with React Native & Expo",
+    "githubUrl": "https://github.com/chideraike/Social-App"
   }
 }
