@@ -7,9 +7,9 @@ import Stories from '../components/Stories';
 import UserImage from '../components/UserImage';
 import Posts from '../components/Posts';
 
-function Home({ navigation }) {
+function Home({ navigation, onLayout }) {
     return (
-        <View>
+        <View onLayout={onLayout}>
             <UserInfo navigation={navigation} />
             <SearchBar />
             <Stories navigation={navigation} />
@@ -20,7 +20,7 @@ function Home({ navigation }) {
 
 
 
-const UserInfo = ({ navigation}) => (
+const UserInfo = ({ navigation }) => (
     <View style={styles.userInfoContainer}>
         <View>
             <NewText content="Hello," h3 light />
